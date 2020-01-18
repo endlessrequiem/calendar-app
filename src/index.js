@@ -2,6 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import FirebaseState from "./context/firebase/FirebaseState";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import Login from "./components/Login/Login";
+import PrivateRoute from "./context/firebase/PrivateRoute";
+
+
 
 const Index = () => {
   return <div>Index</div>;
@@ -10,7 +14,8 @@ const Index = () => {
 ReactDOM.render(
   <FirebaseState>
     <Router>
-      <Route exact path='/' component={Index} />
+      <PrivateRoute exact path='/' component={Index} />
+      <Route exact path="/" component={Login} />
       <Redirect to='/' />
     </Router>
   </FirebaseState>,
