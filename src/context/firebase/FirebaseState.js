@@ -1,29 +1,31 @@
 import React, { useReducer } from "react";
 import axios from "axios";
-import FirebaseContext from "./firebaseContext";
+import AuthProvider from "./AuthContext";
 import FirebaseReducer from "./firebaseReducer";
-import { SIGN_IN } from "../types";
+import { LOG_IN } from "../types";
 
 const FirebaseState = props => {
   const initialState = {
-    users: [],
+    user: "",
     loading: false
   };
 
   const [state, dispatch] = useReducer(FirebaseReducer, initialState);
 
   // Sign in users
-  const signInUsers = async text => {
+  const logInUser = async text => {
     const res = await axios.get("");
 
+
+
     dispatch({
-      type: SIGN_IN,
+      type: LOG_IN,
       payload: res.data.items
     });
   };
 
   return (
-    <FirebaseContext.Provider
+    <AuthProvider
       value={{
         users: state.users,
         loading: state.loading,
@@ -31,7 +33,7 @@ const FirebaseState = props => {
       }}
     >
       {props.children}
-    </FirebaseContext.Provider>
+    </AuthProvider>
   );
 };
 
