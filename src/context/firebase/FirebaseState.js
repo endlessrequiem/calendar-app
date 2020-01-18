@@ -29,7 +29,7 @@ const FirebaseState = props => {
       value={{
         users: state.users,
         loading: state.loading,
-        signInUsers
+
       }}
     >
       {props.children}
