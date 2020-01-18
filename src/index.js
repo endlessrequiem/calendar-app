@@ -15,7 +15,7 @@ ReactDOM.render(
   <FirebaseState>
     <Router>
       <PrivateRoute exact path='/' component={Home} />
-      <Route exact path='/login' component={Home} />
+      <Route exact path='/login' component={Login} />
     </Router>
   </FirebaseState>,
   document.querySelector("#root")
