@@ -8,8 +8,8 @@ const IndividualEventRow = ({ eventName, eventTime }) => {
 
   return (
     <div className='my-events-row' onClick={handleMyEventsClick}>
-      <div className='my-event-name'>{eventName}</div>
-      <div className='my-event-time'>{eventTime}</div>
+      <div className='my-event-name'>{eventName ? eventName : "No Props"}</div>
+      <div className='my-event-time'>{eventTime ? eventTime : "No Props"}</div>
     </div>
   );
 };
