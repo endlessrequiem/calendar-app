@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import app from "../../firebase";
 
 
 
@@ -18,7 +19,20 @@ function Login({history}) {
 
     return(
         <div>
-            <h1>Login Page</h1>
+            <form>
+                <label>
+                    Email:
+                <input name="email" type="email"/>
+
+                </label>
+                <label>
+                    Password:
+                    <input name="password" type="password"/>
+                </label>
+            </form>
         </div>
     );
 }
+
+
+export default Login;
