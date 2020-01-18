@@ -15,7 +15,7 @@ ReactDOM.render(
   <FirebaseState>
     <Router>
       <PrivateRoute exact path='/' component={Index} />
-      <Route exact path="/" component={Login} />
+      <Route exact path="/login" component={Login} />
       <Redirect to='/' />
     </Router>
   </FirebaseState>,

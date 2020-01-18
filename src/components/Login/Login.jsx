@@ -1,25 +1,16 @@
-import React, { useCallback } from "react";
-import app from "../../firebase";
+import React, { useContext } from "react";
+import {AuthContext} from "../../context/firebase/AuthContext";
 
 
+ 
 
 function Login({history}) {
-    const handleLogin = useCallback(async (event) => {
-        event.preventDefault();
-        const {email, password} = event.target.elements;
-        try {
-            await app.auth().signInWithEmailAndPassword(email.value, password.value);
-            history.push("/");
-        } catch(error) {
-            alert("Error logining in: ", error);
-        }
-    }
-    );
-
+    
+  const authContext = useContext(AuthContext);
 
     return(
         <div>
-            <form>
+            <form onSubmit={authContext.LogInUser(history)}>
                 <label>
                     Email:
                 <input name="email" type="email"/>
@@ -29,6 +20,7 @@ function Login({history}) {
                     Password:
                     <input name="password" type="password"/>
                 </label>
+                <button type="submit">LogIn</button>
             </form>
         </div>
     );
