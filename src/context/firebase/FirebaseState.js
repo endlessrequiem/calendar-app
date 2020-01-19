@@ -16,43 +16,46 @@ const FirebaseState = props => {
 
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
-      console.log("use effect", user);
-      if (user) {
+      console.log("user above dispatch: ", user);
         dispatch({
           type: LOG_IN,
           payload: user
         });
-      }
+
+
+      
     });
 
   }, []);
 
   // Sign in users
-const LogInUser = (history) => {
+const LogInUser = (email, password) => {
 
 
-    const handleLogin = useCallback(async (event) => {
-      event.preventDefault();
-      const {email, password} = event.target.elements;
+  
+      // /event.preventDefault();
+      
       try {
-          await app.auth().signInWithEmailAndPassword(email.value, password.value);
-          history.push("/");
+           app.auth().signInWithEmailAndPassword(email, password);
+        
+       
       } catch(error) {
+        console.log("error: ", error);
           alert("Error logining in: ", error);
+          
       }
-     }, [history]
-    );
+     }
 
+    let user = app.auth().currentUser;
+     console.log("user in handle ", user);
       // dispatch({
       //   type: LOG_IN,
-      //   payload: ""
+      //   payload: user
       // });
-  };
 
 
-  const AuthProvider = (props) => {
 
-  }
+  
 
 
   return (
