@@ -7,15 +7,17 @@ import FloatingButton from "./FloatingButton";
 import "./Home.css";
 import app from "../../firebase";
 
-const Home = () => {
+const Home = props => {
   return (
-    <div className='home container'>
-      <NavBar />
-      <MyEvents />
-      <FriendsEvents />
-      <TabBar />
+    <>
       <FloatingButton />
-    </div>
+      <div className='home container'>
+        <NavBar />
+        <MyEvents />
+        <FriendsEvents />
+        <TabBar history={props.history} />
+      </div>
+    </>
   );
 };
 

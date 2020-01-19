@@ -1,0 +1,10 @@
+.calendar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.month {
+  border: solid black 1px;
+}
