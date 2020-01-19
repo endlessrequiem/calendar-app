@@ -1,35 +1,52 @@
-import React, { useCallback } from "react";
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
-import app from "../../firebase";
+import React, { useContext, useState } from "react";
+import {AuthContext} from "../../context/firebase/AuthContext";
+import {withRouter} from "react-router";
+import {Link} from "react-router-dom";
 
 
 
-function Login( {history} ) {
-    const handleLogin = useCallback(async (event) => {
+
+
+
+function Login({history}) {
+    const [state, updateState] = useState({email: "", password: ""});
+
+    function updateInput(event) {
+        const {name, value} = event.target;
+        console.log("event: ", event);
+        console.log(state.email, state.password);
+
+        updateState(prevState => ({...prevState, [name]: value}));
+        console.log("this should be the email: ", state.email);
+    }
+
+    function handleLogin(event) {
         event.preventDefault();
-        const {email, password} = event.target.elements;
-        try {
-            await app.auth().signInWithEmailAndPassword(email.value, password.value);
-            history.push("/");
-        }  catch (error) {
-            alert(error);
-        }
-    }, [history]);
+        console.log(state);
+        console.log("email?: ", state.email);
+        console.log("password?: ", state.password);
+        authContext.LogInUser(state.email, state.password);
+        history.push("/");
+
+    }
 
 
-    return (
+    
+  const authContext = useContext(AuthContext);
+
+    return(
         <div>
-            <form>
+            <form onSubmit={handleLogin}>
                 <label>
                     Email:
-                <input name="email" type="email"/>
+                <input name="email" type="email" value={state.email} onChange={updateInput}/>
 
                 </label>
                 <label>
                     Password:
-                    <input name="password" type="password"/>
+                    <input name="password" type="password" value={state.password} onChange={updateInput}/>
                 </label>
+                <button type="submit">LogIn</button>
             </form>
         
         <div className="SignUp">
@@ -40,4 +57,6 @@ function Login( {history} ) {
         </div>
     );
 }
-export default Login;
+
+
+export default withRouter(Login);
