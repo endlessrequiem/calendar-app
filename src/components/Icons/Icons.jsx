@@ -15,6 +15,36 @@ export const AccountIcon = () => {
   );
 };
 
+export const ArrowLeftIcon = () => {
+  return (
+    <svg
+      fill='#000000'
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      width='24px'
+      height='24px'
+    >
+      {" "}
+      <path d='M16,17.935V6.065c0-0.947-1.136-1.421-1.8-0.751l-5.891,5.935c-0.412,0.415-0.412,1.088,0,1.503l5.891,5.935 C14.864,19.356,16,18.882,16,17.935z' />
+    </svg>
+  );
+};
+
+export const ArrowRightIcon = () => {
+  return (
+    <svg
+      fill='#000000'
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      width='24px'
+      height='24px'
+    >
+      {" "}
+      <path d='M9.8,18.687l5.891-5.935c0.412-0.415,0.412-1.088,0-1.503L9.8,5.313C9.136,4.644,8,5.118,8,6.065v11.871 C8,18.882,9.136,19.356,9.8,18.687z' />
+    </svg>
+  );
+};
+
 export const CalendarIcon = () => {
   return (
     <svg

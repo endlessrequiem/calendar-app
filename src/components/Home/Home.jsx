@@ -5,7 +5,6 @@ import MyEvents from "../MyEvents/MyEvents";
 import FriendsEvents from "../FriendsEvents/FriendsEvents";
 import FloatingButton from "./FloatingButton";
 import "./Home.css";
-import app from "../../firebase";
 
 const Home = props => {
   return (

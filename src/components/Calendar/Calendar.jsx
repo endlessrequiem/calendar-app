@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import TabBar from "../TabBar/TabBar";
 import NavBar from "../NavBar/NavBar";
-import MyEvents from "../MyEvents/MyEvents";
-import FriendsEvents from "../FriendsEvents/FriendsEvents";
 import FloatingButton from "./../Home/FloatingButton";
 import "./Calendar.css";
-import CalendarDay from "./CalendarDay";
-import CalendarWeek from "./CalendarWeek";
 import CalendarDaysOfWeek from "./CalendarDaysOfWeek";
 import CalendarMonth from "./CalendarMonth";
 import moment from "moment";
+import { ArrowLeftIcon, ArrowRightIcon } from "./../Icons/Icons";
 
 const Calendar = props => {
   const [dateObject, setDateObject] = useState(moment());
+  const [currentMonth, setCurrentMonth] = useState(dateObject.month());
+  const [currentYear, setCurrentYear] = useState(dateObject.year());
 
   const weekdayshort = moment.weekdaysShort();
   console.log("weekdayshort = ", weekdayshort);
@@ -24,14 +23,10 @@ const Calendar = props => {
     return firstDay;
   };
 
-  const getCurrentMonth = () => {
-    return dateObject.month();
-  };
-
-  const currentMonth = getCurrentMonth();
   var currentMonthString;
 
   console.log(currentMonth);
+  console.log(currentYear);
 
   switch (currentMonth) {
     case 0:
@@ -112,11 +107,37 @@ const Calendar = props => {
   //     </div>
   //   );
 
+  const handleLeftArrowIconClick = () => {
+    console.log("LeftArrowIcon was clicked");
+    setDateObject(dateObject.subtract(1, "M"));
+    setCurrentMonth(dateObject.month());
+    setCurrentYear(dateObject.year());
+    console.log(currentMonth);
+  };
+
+  const handleRightArrowIconClick = () => {
+    console.log("RightArrowIcon was clicked");
+    setDateObject(dateObject.add(1, "M"));
+    setCurrentMonth(dateObject.month());
+    setCurrentYear(dateObject.year());
+    console.log(currentMonth);
+  };
+
   return (
     <>
       <FloatingButton />
       <div className='home month'>
-        <h6>{currentMonthString}</h6>
+        <div className='month-nest'>
+          <span onClick={handleLeftArrowIconClick}>
+            <ArrowLeftIcon />
+          </span>
+          <h3>
+            {currentMonthString} {currentYear}
+          </h3>
+          <span onClick={handleRightArrowIconClick}>
+            <ArrowRightIcon />
+          </span>
+        </div>
         <div className='calendar'>
           <CalendarDaysOfWeek weekdayshort={weekdayshort} />
           <CalendarMonth daysArray={daysArray} />

@@ -1,5 +1,4 @@
 import React from "react";
-import IndividualEventRow from "./../MyEvents/IndividualEventRow";
 import FriendIndividualEventRow from "./FriendIndividualEventRow";
 import { ChevronDownIcon } from "../Icons/Icons";
 import "./FriendsEvents.css";
