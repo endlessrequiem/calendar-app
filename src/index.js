@@ -17,21 +17,12 @@ const Index = () => {
 ReactDOM.render(
   <FirebaseState>
     <Router>
-      <Calendar />
+      <PrivateRoute exact path='/calendar' component={Calendar} />
+      <PrivateRoute exact path='/account' component={Account} />
+      <Route exact path='/signup' component={SignUp} />
+      <Route exact path='/login' component={Login} />
+      <PrivateRoute exact path='/' component={Home} />
     </Router>
   </FirebaseState>,
   document.querySelector("#root")
 );
-
-// ReactDOM.render(
-//   <FirebaseState>
-//     <Router>
-//       <PrivateRoute exact path='/calendar' component={Calendar} />
-//       <PrivateRoute exact path='/account' component={Account} />
-//       <Route exact path='/signup' component={SignUp} />
-//       <Route exact path='/login' component={Login} />
-//       <PrivateRoute exact path='/' component={Home} />
-//     </Router>
-//   </FirebaseState>,
-//   document.querySelector("#root")
-// );
