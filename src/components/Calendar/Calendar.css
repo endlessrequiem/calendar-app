@@ -6,5 +6,12 @@
 }
 
 .month {
-  border: solid black 1px;
+  align-items: center;
+  display: flex;
+}
+
+.month-nest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

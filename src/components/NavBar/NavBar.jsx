@@ -1,11 +1,8 @@
 import React from "react";
 import NavBarSettings from "./NavBarSettings";
-import { AccountIcon, CalendarIcon, HomeIcon } from "../Icons/Icons";
 import "./NavBar.css";
 
 const NavBar = props => {
-  var activePage = "account";
-
   return (
     <nav className='navbar fixed-top navbar-light bg-light navbar-flex'>
       {props.activePage === "account" ? (

@@ -2,12 +2,18 @@
 .calendar-day-container {
   display: flex;
   flex-direction: column;
-  height: 50px;
+  height: 100px;
   width: 50px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px;
-  justify-content: space-around;
+  justify-content: flex-start;
+}
+
+.calendar-day-container-days-of-week {
+  height: 40px !important;
 }
 
 .calendar-day-number {
+  /* justify-items: flex-start; */
+  align-self: flex-start;
 }
