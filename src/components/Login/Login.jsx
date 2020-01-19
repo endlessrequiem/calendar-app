@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import {AuthContext} from "../../context/firebase/AuthContext";
 import {withRouter} from "react-router";
+import {Link} from "react-router-dom";
 
 
 
@@ -47,6 +48,12 @@ function Login({history}) {
                 </label>
                 <button type="submit">LogIn</button>
             </form>
+        
+        <div className="SignUp">
+            <h1>Not Crackalackin yet?</h1>
+            <h2>Sign in here:</h2>
+            <Link to="/signup" className="btn btn-primary">Sign Up</Link>
+        </div>
         </div>
     );
 }
