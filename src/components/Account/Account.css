@@ -2,8 +2,8 @@
     background-color: lightgrey;
     width: auto;
     height: 11em;
-    z-index: 0;
-    border-radius: 10px;
+    z-index: 1;
+    border-radius: 12px;
 }
 
 .circle-style-portrait {

@@ -12,6 +12,8 @@ const Calendar = props => {
   const [dateObject, setDateObject] = useState(moment());
   const [currentMonth, setCurrentMonth] = useState(dateObject.month());
   const [currentYear, setCurrentYear] = useState(dateObject.year());
+  const [nameOfEvent, setNameOfEvent] = useState('nameOfEvent');
+  const [timeOfEvent, setTimeOfEvent] = useState('timeOfEvent');
 
   const weekdayshort = moment.weekdaysShort();
   console.log("weekdayshort = ", weekdayshort);
@@ -140,9 +142,9 @@ const Calendar = props => {
         </div>
         <div className='calendar'>
           <CalendarDaysOfWeek weekdayshort={weekdayshort} />
-          <CalendarMonth daysArray={daysArray} />
+          <CalendarMonth daysArray={daysArray} history={props.history} nameOfEvent={nameOfEvent} setNameOfEvent={setNameOfEvent} timeOfEvent={timeOfEvent} setTimeOfEvent={setTimeOfEvent} />
         </div>
-        <NavBar activePage="Calendar"/>
+        <NavBar activePage='Calendar'/>
         <TabBar history={props.history} />
       </div>
     </>

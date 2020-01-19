@@ -1,25 +1,54 @@
-import React from "react";
+import React, {useState, useContext} from "react";
 import app from "../../firebase";
+import {AuthContext} from "../../context/firebase/AuthContext";
 
 
-
-
- function writeUserData() {
-   
- }
 
 function AddEventModal(props) {
 
+  const authContext = useContext(AuthContext);
+  const [state, setState] = useState({
+    eventName: "",
+    eventDate: "",
+    eventStartTime: "",
+    eventEndTime: ""
+  });
+
+
  
   function writeUserData() {
-    app.database().ref("users/" + "1234567").set({
-      eventName: "a new event",
-      eventDate: "a start time, how should we format this",
-      eventStartTime: "the start time",
-      eventEndTime: "end time"
+    
+    authContext.getNumberOfEvents(authContext.currentUserId);
+    console.log("current id: ", authContext.currentEventId);
+    let currentEventIdInt = parseInt(authContext.currentEventId) + 2;
+
+    console.log("ceii: ", currentEventIdInt);
+    let currentEventId = String(currentEventIdInt);
+    console.log("cei: ", currentEventId);
+    if (currentEventId === NaN) {
+      currentEventId = 0;
+    }
+
+    console.log("type of: ", typeof(NaN));
+    app.database().ref("users/" + authContext.currentUserId + "/" + currentEventId).set({
+  
+      eventName: state.eventName,
+      eventDate: state.eventDate,
+      eventStartTime: state.eventStartTime,
+      eventEndTime: state.eventEndTime
+ 
     });
   }
 
+  function updateInput(event) {
+    
+    const {name, value} = event.target;
+
+    setState(prevState => ({
+      ...prevState,
+      [name]: value
+      }));
+  }
 
     return(
       
@@ -37,17 +66,16 @@ function AddEventModal(props) {
           <div style={{width:"100%", height:"60%", textAlign:"center", marginBottom:"10px"}}>
             
               <p className="label" style={{marginBottom:"0px"}}>Event Name</p>
-              <input style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
+              <input value={state.eventName} onChange={updateInput} name='eventName' style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
              
               <p className="label" style={{marginBottom:"0px"}}>Event Date</p>
-              <input style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
+              <input value={state.eventDate} onChange={updateInput} name='eventDate' style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
             
               <p className="label" style={{marginBottom:"0px"}}>Event Start Time</p>
-              <input style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
+              <input value={state.eventStartTime} onChange={updateInput} name='eventStartTime' style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
              
               <p className="label" style={{marginBottom:"0px"}}>Event End Time</p>
-              <input style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
-              
+              <input value={state.eventEndTime} onChange={updateInput} name='eventEndTime' style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
           </div>
           <p className="label" style={{marginTop:"10px"}}>
             <button type="button" className="button" data-dismiss="modal" style={{width:"auto", marginTop:"20px", borderRadius:"8px", marginRight:"20px"}}>Close</button>
