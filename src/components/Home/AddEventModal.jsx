@@ -1,25 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import app from "../../firebase";
 
 
 
 
- function writeUserData() {
-   
- }
-
 function AddEventModal(props) {
+  const [state, setState] = useState({
+    eventName: "",
+    eventDate: "",
+    eventStartTime: "",
+    eventEndTime: ""
+  });
+
 
  
   function writeUserData() {
-    app.database().ref("users/" + "1234567").set({
-      eventName: "a new event",
-      eventDate: "a start time, how should we format this",
-      eventStartTime: "the start time",
-      eventEndTime: "end time"
+    app.database().ref("users/" + "12345678").set({
+      eventName: state.eventName,
+      eventDate: state.eventDate,
+      eventStartTime: state.eventStartTime,
+      eventEndTime: state.eventEndTime
     });
   }
 
+  function updateInput(event) {
+    const {name, value} = event.target;
+
+    setState(prevState => ({
+      ...prevState,
+      [name]: value
+      }));
+  }
 
     return(
       
@@ -39,26 +50,26 @@ function AddEventModal(props) {
             <div className="row"> 
             <label>
                 Event Name
-              <input type="text"/>
+              <input name="eventName" type="text" onChange={updateInput} value={state.eventName}/>
             </label>
         </div>
         <div>
             <label>
               Event Date
-              <input type="text"/>
+              <input name="eventDate" type="text" onChange={updateInput} value={state.eventDate}/>
               </label>
 </div>
 <div>
               <label>
                 Event Start Time
-                <input type="text"/>
+                <input name="eventStartTime" type="text" onChange={updateInput} value={state.eventStartTime}/>
 
               </label>
 </div>
 <div>
               <label>
                 Event End Time
-                <input type="text"/>
+                <input name="eventEndTime" type="text" onChange={updateInput} value={state.eventEndTime}/>
               </label>
 
           </div>
