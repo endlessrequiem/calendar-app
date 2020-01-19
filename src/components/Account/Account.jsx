@@ -10,7 +10,7 @@ const Account = props => {
       <FloatingButton />
       <div className='home container'>
         <div>Account Page</div>
-        <NavBar activePage='account' />
+        <NavBar activePage='Account' />
         <TabBar history={props.history} />
       </div>
     </>
