@@ -1,19 +1,20 @@
 import React from "react";
 import TabBar from "../TabBar/TabBar";
 import NavBar from "../NavBar/NavBar";
+import MyEvents from "../MyEvents/MyEvents";
+import FriendsEvents from "../FriendsEvents/FriendsEvents";
+import FloatingButton from "./FloatingButton";
 import "./Home.css";
 import app from "../../firebase";
 
 const Home = () => {
   return (
-    <div className='home'>
+    <div className='home container'>
       <NavBar />
-      <div>Home</div>
-      <button onClick={() => {
-        console.log()
-        app.auth().signOut();
-      }}>LogOut</button>
+      <MyEvents />
+      <FriendsEvents />
       <TabBar />
+      <FloatingButton />
     </div>
   );
 };
