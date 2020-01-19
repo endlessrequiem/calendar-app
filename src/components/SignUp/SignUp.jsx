@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { withRouter, history } from "react-router";
 import app from "../../firebase";
 import { FirebaseContext } from "../../firebase";
-
-
+import "./SignUp.css";
 
 function SignUp( {history} ) {
     const [state, updateState] = useState({email:"", password:""});
@@ -28,50 +27,41 @@ function SignUp( {history} ) {
     })
 };
 
-    // const handleSignUp = //useCallback(async event => {
-    //     event.preventDefault();
-    //     try {
-    //         console.log("Email: ", state.email, "Pass:", state.password);
-    //         await app.auth().createUserWithEmailAndPassword(state.email, state.password);
-    //             console.log("After createUser");
-    //         history.push("/");
-    //     } catch (error) {
-    //         alert(error);
-    //     }
-    // }, [history]);
-
-
     return (
-        <div style={{marginTop:"5px",
-                    marginBottom:"5px",
-                    textAlign:"center"}}>
-            <meta name="viewport" content="width-device-width, initial-scale=1.0"></meta>
-            <h2>The Crackalackin Sign Up via Google</h2>
-            <form onSubmit={handleSignUp}>
-                    <p style={{marginTop:"5px",
-                                marginBottom:"5px",
-                                textAlign:"center"}}>Gmail</p>
-                    <input
-                        name="email"
-                        value={state.email}
-                        onChange={updateInput}
-                        type="text"
-                        placeholder="Gmail Account"/>
+        <div className="login container">
+            <div className="banner">
+                <h1 style={{textAlign:"center"}}>freetyme</h1>
+                <h3 style={{textAlign:"center"}}>create an account</h3>
+            </div>
 
-                    <p style={{marginTop:"15px",
-                            marginBottom:"5px",
-                            textAlign:"center"}}>Password</p>
-                    <input
-                        name="password"
-                        value={state.password}
-                        onChange={updateInput}
-                        type="password"
-                        placeholder="Password"/>
+            <div className="signup">
+                <form onSubmit={handleSignUp}>
+                        <p className="label">enter your email</p>
+                        <input
+                            name="email"
+                            value={state.email}
+                            onChange={updateInput}
+                            type="text"
+                            className="textbox"/>
 
-                    <p style={{marginTop:"5px", marginBottom:"5px"}}>
-                        <button type="submit" style={{width:"230px"}}>Sign Up </button> 
-                    </p>
-            </form>
+                        <p className="label">choose a password</p>
+                        <input
+                            name="password"
+                            value={state.password}
+                            onChange={updateInput}
+                            type="password"
+                            className="textbox"/>
+
+                        <div>
+                            <button className="button" type="submit">sign up </button> 
+                        </div>
+                        <hr className="hr"/>
+                        <div>
+                            <h4 className="label" style={{marginTop:"-20px"}}>mistakes were made</h4>
+                            <Link className="button" to="/login">go back</Link>
+                        </div>
+                </form>
+            </div>
         </div>
      );
 }

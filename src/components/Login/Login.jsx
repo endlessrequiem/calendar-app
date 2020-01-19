@@ -33,7 +33,7 @@ function Login({history}) {
             <div className="login container">
                 <div className="banner">
                     <h1 style={{textAlign:"center"}}>freetyme</h1>
-                    <p className="label">knowledge :: time coordination</p>
+                    <h6 className="label">knowledge :: time coordination</h6>
                 </div>
                 <div className="login">
                     <form onSubmit={handleLogin}>
@@ -52,12 +52,12 @@ function Login({history}) {
                             onChange={updateInput}
                             className="textbox"/>
                         <div>
-                            <button 
-                                className="button" type="submit">log in</button>
+                            <button className="button" type="submit">log in</button>
                         </div>
                     </form>
-                    <div className="SignUp">
-                        <h4 className="label" style={{marginTop:"80px"}}>not crackalackin yet?</h4>
+                    <hr className="hr"/>
+                    <div>
+                        <h4 className="label" style={{marginTop:"-20px"}}>not crackalackin yet?</h4>
                         <Link className="button" to="/signup">sign up</Link>
                     </div>
                 </div>
