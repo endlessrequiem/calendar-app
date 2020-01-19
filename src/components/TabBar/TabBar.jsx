@@ -14,13 +14,14 @@ const TabBar = props => {
   const handleCalendarIconButtonClick = () => {
     // This will need to change the route of the page to '/calendar'
     console.log("Calendar Icon was clicked");
-    props.history.push("/Calendar");
+    props.history.push("/calendar");
   };
 
   // this function runs whenever the accounticon components gets clicked
   const handleAccountIconButtonClick = () => {
     // This will need to change the route of the page to '/account'
     console.log("Account Icon was clicked");
+    props.history.push("/account");
   };
 
   return (
