@@ -6,12 +6,14 @@ import "./Account.css";
 
 const Account = props => {
   return (
-    <div className='home container'>
-      <div>Account Page</div>
-      <NavBar activePage='account' />
-      <TabBar history={props.history} />
+    <>
       <FloatingButton />
-    </div>
+      <div className='home container'>
+        <div>Account Page</div>
+        <NavBar activePage='account' />
+        <TabBar history={props.history} />
+      </div>
+    </>
   );
 };
 

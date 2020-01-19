@@ -9,13 +9,15 @@ import app from "../../firebase";
 
 const Home = props => {
   return (
-    <div className='home container'>
-      <NavBar />
-      <MyEvents />
-      <FriendsEvents />
-      <TabBar history={props.history} />
+    <>
       <FloatingButton />
-    </div>
+      <div className='home container'>
+        <NavBar />
+        <MyEvents />
+        <FriendsEvents />
+        <TabBar history={props.history} />
+      </div>
+    </>
   );
 };
 
