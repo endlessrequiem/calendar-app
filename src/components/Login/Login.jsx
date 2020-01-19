@@ -2,10 +2,7 @@ import React, { useContext, useState } from "react";
 import {AuthContext} from "../../context/firebase/AuthContext";
 import {withRouter} from "react-router";
 import {Link} from "react-router-dom";
-
-
-
-
+import "./Login.css";
 
 
 function Login({history}) {
@@ -31,32 +28,42 @@ function Login({history}) {
     }
 
 
-    
   const authContext = useContext(AuthContext);
-
-    return(
-        <div>
-            <form onSubmit={handleLogin}>
-                <label>
-                    Email:
-                <input name="email" type="email" value={state.email} onChange={updateInput}/>
-
-                </label>
-                <label>
-                    Password:
-                    <input name="password" type="password" value={state.password} onChange={updateInput}/>
-                </label>
-                <button type="submit">LogIn</button>
-            </form>
-        
-        <div className="SignUp">
-            <h1>Not Crackalackin yet?</h1>
-            <h2>Sign in here:</h2>
-            <Link to="/signup" className="btn btn-primary">Sign Up</Link>
-        </div>
-        </div>
-    );
+        return(
+            <div className="login container">
+                <div className="banner">
+                    <h1 style={{textAlign:"center"}}>freetyme</h1>
+                    <p className="label">knowledge :: time coordination</p>
+                </div>
+                <div className="login">
+                    <form onSubmit={handleLogin}>
+                        <p className="label">email</p>
+                        <input
+                            name="email"
+                            type="email"
+                            value={state.email}
+                            onChange={updateInput}
+                            className="textbox"/>
+                        <p className="label">password</p>
+                        <input
+                            name="password"
+                            type="password"
+                            value={state.password}
+                            onChange={updateInput}
+                            className="textbox"/>
+                        <div>
+                            <button 
+                                className="button" type="submit">log in</button>
+                        </div>
+                    </form>
+                    <div className="SignUp">
+                        <h4 className="label" style={{marginTop:"80px"}}>not crackalackin yet?</h4>
+                        <Link className="button" to="/signup">sign up</Link>
+                    </div>
+                </div>
+            </div>
+        );
+    
 }
-
 
 export default withRouter(Login);
