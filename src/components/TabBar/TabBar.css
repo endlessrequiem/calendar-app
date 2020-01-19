@@ -2,3 +2,8 @@
   display: flex;
   justify-content: space-around;
 }
+
+button {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+}

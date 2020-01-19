@@ -1,6 +1,7 @@
 import React from "react";
 import { SettingsIcon } from "../Icons/Icons";
 import app from "../../firebase";
+import "./NavBarSettings.css";
 
 const NavBarSettings = () => {
   function signOut() {
