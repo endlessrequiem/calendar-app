@@ -115,8 +115,8 @@ const Calendar = props => {
   return (
     <>
       <FloatingButton />
-      <div className='home'>
-        <div className='container'>Calendar Page</div>
+      <div className='home month'>
+        <h6>{currentMonthString}</h6>
         <div className='calendar'>
           <CalendarDaysOfWeek weekdayshort={weekdayshort} />
           <CalendarMonth daysArray={daysArray} />
