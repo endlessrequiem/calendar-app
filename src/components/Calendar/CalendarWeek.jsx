@@ -5,7 +5,7 @@ const CalendarWeek = props => {
   return (
     <>
       {props.week.map((day, index) => (
-        <CalendarDay dayNumber={day} key={index} />
+        <CalendarDay dayNumber={day} key={index} eventName={props.eventName} history={props.history} nameOfEvent={props.nameOfEvent} setNameOfEvent={props.setNameOfEvent} timeOfEvent={props.timeOfEvent} setTimeOfEvent={props.setTimeOfEvent} />
       ))}
     </>
   );

@@ -11,7 +11,7 @@ const Home = props => {
     <>
       <FloatingButton />
       <div className='home container'>
-        <NavBar />
+        <NavBar activePage='FreeThyme' />
         <MyEvents />
         <FriendsEvents />
         <TabBar history={props.history} />

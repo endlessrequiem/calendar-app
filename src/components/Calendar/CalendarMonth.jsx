@@ -10,7 +10,7 @@ const CalendarMonth = props => {
   return (
     <>
       {newDaysArray.map((week, index) => (
-        <CalendarWeek week={week} key={index} />
+        <CalendarWeek week={week} key={index} history={props.history} nameOfEvent={props.nameOfEvent} setNameOfEvent={props.setNameOfEvent} timeOfEvent={props.timeOfEvent} setTimeOfEvent={props.setTimeOfEvent} />
       ))}
     </>
   );

@@ -6,3 +6,7 @@
 .hidden-flex {
   visibility: hidden;
 }
+
+.navbar {
+  height: 75px;
+}
