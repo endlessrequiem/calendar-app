@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
+import { withRouter, history } from "react-router";
 import app from "../../firebase";
 import { FirebaseContext } from "../../firebase";
 
@@ -19,6 +19,9 @@ function SignUp( {history} ) {
         app.auth().createUserWithEmailAndPassword(state.email, state.password).then(() => {
            var user = app.auth().currentUser;
            console.log("User:", user)
+           if (user){
+               history.push("/");
+           }
     }).catch((error) => {
         // An error happened.
         console.log("Error: ", error)
