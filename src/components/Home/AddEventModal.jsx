@@ -51,6 +51,9 @@ function AddEventModal(props) {
   }
 
     return(
+      
+    
+    
     
     <div className="modal fade" id={props.id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered" role="document">
@@ -60,7 +63,8 @@ function AddEventModal(props) {
               <span aria-hidden="true">&times;</span>
             </button>
             <h5 className="modal-title" id="exampleModalCenterTitle" style={{textAlign:"center", marginTop:"15px", width:"auto", zIndex:1}}>Define Your Event</h5>
-          </div>          
+          </div>
+          
           <div style={{width:"100%", height:"60%", textAlign:"center", marginBottom:"10px"}}>
             
               <p className="label" style={{marginBottom:"0px"}}>Event Name</p>
@@ -74,33 +78,6 @@ function AddEventModal(props) {
              
               <p className="label" style={{marginBottom:"0px"}}>Event End Time</p>
               <input style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
-                        <div className="modal-body">
-            <div className="row"> 
-            <label>
-                Event Name
-              <input name="eventName" type="text" onChange={updateInput} value={state.eventName}/>
-            </label>
-        </div>
-        <div>
-            <label>
-              Event Date
-              <input name="eventDate" type="text" onChange={updateInput} value={state.eventDate}/>
-              </label>
-</div>
-<div>
-              <label>
-                Event Start Time
-                <input name="eventStartTime" type="text" onChange={updateInput} value={state.eventStartTime}/>
-
-              </label>
-</div>
-<div>
-              <label>
-                Event End Time
-                <input name="eventEndTime" type="text" onChange={updateInput} value={state.eventEndTime}/>
-              </label>
-
-          </div>
           </div>
           <div className="modal-footer" style={{marginTop:"10px"}}>
           <button type="button" className="button" onClick={writeUserData} style={{marginTop:"15px", borderRadius:"8px"}}>Save changes</button>
@@ -109,6 +86,7 @@ function AddEventModal(props) {
         </div>
       </div>
     </div>
+  
    
     );
 
