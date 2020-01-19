@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import app from "../../firebase";
-
+import {AuthContext} from "../../context/firebase/AuthContext";
 
 
 
 function AddEventModal(props) {
+
+  const authContext = useContext(AuthContext);
   const [state, setState] = useState({
     eventName: "",
     eventDate: "",
@@ -15,15 +17,31 @@ function AddEventModal(props) {
 
  
   function writeUserData() {
-    app.database().ref("users/" + "12345678").set({
+    
+    authContext.getNumberOfEvents(authContext.currentUserId);
+    console.log("current id: ", authContext.currentEventId);
+    let currentEventIdInt = parseInt(authContext.currentEventId) + 2;
+
+    console.log("ceii: ", currentEventIdInt);
+    let currentEventId = String(currentEventIdInt);
+    console.log("cei: ", currentEventId);
+    if (currentEventId === NaN) {
+      currentEventId = 0;
+    }
+
+    console.log("type of: ", typeof(NaN));
+    app.database().ref("users/" + authContext.currentUserId + "/" + currentEventId).set({
+  
       eventName: state.eventName,
       eventDate: state.eventDate,
       eventStartTime: state.eventStartTime,
       eventEndTime: state.eventEndTime
+ 
     });
   }
 
   function updateInput(event) {
+    
     const {name, value} = event.target;
 
     setState(prevState => ({
