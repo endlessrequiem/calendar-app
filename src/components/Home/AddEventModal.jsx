@@ -68,16 +68,16 @@ function AddEventModal(props) {
           <div style={{width:"100%", height:"60%", textAlign:"center", marginBottom:"10px"}}>
             
               <p className="label" style={{marginBottom:"0px"}}>Event Name</p>
-              <input style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
+              <input value={state.eventName} onChange={updateInput} name='eventName' style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
              
               <p className="label" style={{marginBottom:"0px"}}>Event Date</p>
-              <input style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
+              <input value={state.eventDate} onChange={updateInput} name='eventDate' style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
             
               <p className="label" style={{marginBottom:"0px"}}>Event Start Time</p>
-              <input style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
+              <input value={state.eventStartTime} onChange={updateInput} name='eventStartTime' style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
              
               <p className="label" style={{marginBottom:"0px"}}>Event End Time</p>
-              <input style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
+              <input value={state.eventEndTime} onChange={updateInput} name='eventEndTime' style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
           </div>
           <div className="modal-footer" style={{marginTop:"10px"}}>
           <button type="button" className="button" onClick={writeUserData} style={{marginTop:"15px", borderRadius:"8px"}}>Save changes</button>
