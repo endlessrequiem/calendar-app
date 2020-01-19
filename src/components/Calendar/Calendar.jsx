@@ -3,19 +3,18 @@ import TabBar from "../TabBar/TabBar";
 import NavBar from "../NavBar/NavBar";
 import MyEvents from "../MyEvents/MyEvents";
 import FriendsEvents from "../FriendsEvents/FriendsEvents";
-import FloatingButton from "./FloatingButton";
-import "./Home.css";
+import FloatingButton from "./../Home/FloatingButton";
+import "./Calendar.css";
 
-const Home = props => {
+const Calendar = props => {
   return (
     <div className='home container'>
+      <div>Calendar Page</div>
       <NavBar />
-      <MyEvents />
-      <FriendsEvents />
       <TabBar history={props.history} />
       <FloatingButton />
     </div>
   );
 };
 
-export default Home;
+export default Calendar;

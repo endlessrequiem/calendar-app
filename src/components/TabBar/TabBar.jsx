@@ -2,17 +2,19 @@ import React from "react";
 import { HomeIcon, CalendarIcon, AccountIcon } from "../Icons/Icons";
 import "./TabBar.css";
 
-const TabBar = () => {
+const TabBar = props => {
   // this function runs whenever the homeicon components gets clicked
   const handleHomeIconButtonClick = () => {
     // This will need to change the route of the page to '/home'
     console.log("Home Icon was clicked");
+    props.history.push("/");
   };
 
   // this function runs whenever the calendaricon components gets clicked
   const handleCalendarIconButtonClick = () => {
     // This will need to change the route of the page to '/calendar'
     console.log("Calendar Icon was clicked");
+    props.history.push("/Calendar");
   };
 
   // this function runs whenever the accounticon components gets clicked
