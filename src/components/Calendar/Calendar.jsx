@@ -121,7 +121,7 @@ const Calendar = props => {
           <CalendarDaysOfWeek weekdayshort={weekdayshort} />
           <CalendarMonth daysArray={daysArray} />
         </div>
-        <NavBar />
+        <NavBar activePage="Calendar"/>
         <TabBar history={props.history} />
       </div>
     </>

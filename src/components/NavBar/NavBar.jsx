@@ -15,9 +15,15 @@ const NavBar = props => {
       ) : (
         ""
       )}
-      <div className='navbar-brand title-flex'>Calendar App</div>
-      {props.activePage === "account" ? <NavBarSettings /> : ""}
+      <div className='navbar-banner'>
+        <h2 style={{marginTop:"6px"}}>{props.activePage}</h2>
+      </div>
+      
+      <div className="gear">
+      {props.activePage === "Your Account" ? <NavBarSettings /> : ""}
+      </div>
     </nav>
+    
   );
 };
 

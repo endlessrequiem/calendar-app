@@ -12,7 +12,7 @@ const Home = props => {
     <>
       <FloatingButton />
       <div className='home container'>
-        <NavBar />
+        <NavBar activePage="Home"/>
         <MyEvents />
         <FriendsEvents />
         <TabBar history={props.history} />

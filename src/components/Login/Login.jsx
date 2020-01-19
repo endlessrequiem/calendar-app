@@ -43,22 +43,22 @@ function Login({history}) {
                             type="email"
                             value={state.email}
                             onChange={updateInput}
-                            className="textbox"/>
+                            className="box"/>
                         <p className="label">password</p>
                         <input
                             name="password"
                             type="password"
                             value={state.password}
                             onChange={updateInput}
-                            className="textbox"/>
+                            className="box"/>
                         <div>
-                            <button className="button" type="submit">log in</button>
+                            <button className="rounded_btn" type="submit" style={{borderRadius:"8px"}}>log in</button>
                         </div>
                     </form>
                     <hr className="hr"/>
                     <div>
                         <h4 className="label" style={{marginTop:"-20px"}}>not crackalackin yet?</h4>
-                        <Link className="button" to="/signup">sign up</Link>
+                        <Link className="rounded_btn" to="/signup">sign up</Link>
                     </div>
                 </div>
             </div>
