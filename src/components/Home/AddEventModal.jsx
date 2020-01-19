@@ -59,9 +59,7 @@ function AddEventModal(props) {
       <div className="modal-dialog modal-dialog-centered" role="document">
         <div className="modal-content">
           <div className="modal-login" style={{backgroundColor:"lightgrey", paddingBottom:"12px"}}>
-          <button type="button" className="close" data-dismiss="modal" aria-label="Close" style={{marginRight:"5px", zIndex:0}}>
-              <span aria-hidden="true">&times;</span>
-            </button>
+          
             <h5 className="modal-title" id="exampleModalCenterTitle" style={{textAlign:"center", marginTop:"15px", width:"auto", zIndex:1}}>Define Your Event</h5>
           </div>
           
@@ -79,10 +77,10 @@ function AddEventModal(props) {
               <p className="label" style={{marginBottom:"0px"}}>Event End Time</p>
               <input value={state.eventEndTime} onChange={updateInput} name='eventEndTime' style={{width:"auto", boxSizing:"border-box", borderRadius:"8px"}} type="text"/>
           </div>
-          <div className="modal-footer" style={{marginTop:"10px"}}>
-          <button type="button" className="button" onClick={writeUserData} style={{marginTop:"15px", borderRadius:"8px"}}>Save changes</button>
-            <button type="button" className="button" data-dismiss="modal" style={{marginTop:"20px", borderRadius:"8px"}}>Close</button>
-          </div>
+          <p className="label" style={{marginTop:"10px"}}>
+            <button type="button" className="button" data-dismiss="modal" style={{width:"auto", marginTop:"20px", borderRadius:"8px", marginRight:"20px"}}>Close</button>
+            <button type="button" className="button" onClick={writeUserData} style={{width:"auto", marginTop:"15px", borderRadius:"8px"}}>Save changes</button>
+          </p>
         </div>
       </div>
     </div>

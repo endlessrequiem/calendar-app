@@ -1,6 +1,19 @@
-.navbar-flex {
+.navbar-banner {
   display: flex;
   justify-content: space-evenly;
+  background-color:lightgrey;
+  position:fixed;
+  width:100%;
+  height: 3.1em;
+  top:0px;
+  left:0px;
+  z-index: 0;
+}
+
+.gear {
+  z-index: 1;
+  width: 100%;
+  text-align: right;
 }
 
 .hidden-flex {

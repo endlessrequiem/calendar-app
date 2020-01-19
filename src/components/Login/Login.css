@@ -22,13 +22,13 @@
     margin-top: 15px;
 }
 
-.textbox {
+.box {
     width: 100%;
     box-sizing: border-box;
     border-radius: 8px;
 }
 
-.button {
+.rounded_btn {
     background-color: lightgrey;
     margin-top: 30px;
     margin-bottom: 10px;

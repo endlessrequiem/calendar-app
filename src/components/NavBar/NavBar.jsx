@@ -11,13 +11,28 @@ const NavBar = props => {
   };
 
   return (
-    <nav className='navbar fixed-top navbar-light bg-light navbar-flex'>
+    <nav className='navbar-banner'>
+      {props.activePage === "account" ? (
+        <div className='hidden-flex'>
+          <NavBarSettings />
+        </div>
+      ) : (
+        ""
+      )}
+      <div className='navbar-banner'>
+        <h2 style={{marginTop:"6px"}}>{props.activePage}</h2>
+      </div>
+      
+      <div className="gear">
+      {props.activePage === "Your Account" ? <NavBarSettings /> : ""}
+      </div>
       {props.activePage === "Account" ? (<div className='hidden-flex'><NavBarSettings /></div>) : null}
       {props.activePage === "day" ? (<span onClick={handleBackArrowClick}><ChevronLeftIcon /></span>) : null}
-  <div className='navbar-brand title-flex'><h3>{props.activePage}</h3></div>
+ 
       {props.activePage === "Account" ? <NavBarSettings /> : null}
       {props.activePage === "day" ? <div className='hidden-flex'><ChevronLeftIcon /></div> : null}
     </nav>
+    
   );
 };
 

@@ -8,11 +8,12 @@ const Account = props => {
   return (
     <>
       <FloatingButton />
-      <div className='home container'>
-        <div>Account Page</div>
-        <NavBar activePage='Account' />
+        
+        <NavBar activePage="Your Account" />
         <TabBar history={props.history} />
-      </div>
+        <div className="third-shade"></div>
+        <p className="circle-style-portrait"></p>
+      
     </>
   );
 };
