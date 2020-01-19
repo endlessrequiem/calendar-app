@@ -1,29 +1,22 @@
 import React from "react";
-import NavBarSettings from './NavBarSettings';
-import { AccountIcon, CalendarIcon, HomeIcon } from '../Icons/Icons';
-import './NavBar.css';
-import app from "../../firebase";
+import NavBarSettings from "./NavBarSettings";
+import { AccountIcon, CalendarIcon, HomeIcon } from "../Icons/Icons";
+import "./NavBar.css";
 
-const NavBar = () => {
-
-    var isOnUserPage = 'account';
-
-    function signOut() {
-      app.auth().signOut();
-    }
+const NavBar = props => {
+  var activePage = "account";
 
   return (
     <nav className='navbar fixed-top navbar-light bg-light navbar-flex'>
-        {isOnUserPage === 'account' && <div className='hidden-flex'>
-            <NavBarSettings />
-        </div>}
-        <button onClick={signOut}>Sign Out</button>
-      <div className='navbar-brand title-flex'>
-        Calendar App
-      </div>
-      {isOnUserPage === 'account' && <div className='hidden-flex'>
-            <NavBarSettings />
-        </div>}
+      {props.activePage === "account" ? (
+        <div className='hidden-flex'>
+          <NavBarSettings />
+        </div>
+      ) : (
+        ""
+      )}
+      <div className='navbar-brand title-flex'>Calendar App</div>
+      {props.activePage === "account" ? <NavBarSettings /> : ""}
     </nav>
   );
 };
